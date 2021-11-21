@@ -1,5 +1,9 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useMemo } from 'react';
+import { useTheme } from 'next-themes';
+
+import { ThemeType } from '~/types';
 
 const ITEMS = [
 	{
@@ -25,6 +29,16 @@ const ITEMS = [
 ];
 
 export default function Home() {
+	const { theme, setTheme } = useTheme();
+
+	const isDark = useMemo(() => {
+		if (theme === ThemeType.SYSTEM) {
+			return window.matchMedia('(prefers-color-scheme: dark)').matches;
+		}
+
+		return theme === ThemeType.DARK;
+	}, [theme]);
+
 	return (
 		<>
 			<Head>
@@ -50,10 +64,47 @@ export default function Home() {
 					</code>
 				</p>
 
+				<div className="w-full flex items-center justify-center p-4">
+					<button
+						aria-label="Toggle Theme"
+						className="w-full sm:w-auto px-8 py-2 bg-gray-600 text-white dark:(bg-white text-gray-700) hover:(bg-gray-800 dark:bg-gray-200) rounded-md font-bold leading-6 transition ease-in-out duration-500 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
+						onClick={() => setTheme(isDark ? 'light' : 'dark')}
+						type="submit">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							className="inline-flex mr-3">
+							{isDark ? (
+								<>
+									<circle cx="12" cy="12" r="5"></circle>
+									<line x1="12" y1="1" x2="12" y2="3"></line>
+									<line x1="12" y1="21" x2="12" y2="23"></line>
+									<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+									<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+									<line x1="1" y1="12" x2="3" y2="12"></line>
+									<line x1="21" y1="12" x2="23" y2="12"></line>
+									<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+									<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+								</>
+							) : (
+								<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+							)}
+						</svg>
+						{isDark ? 'Light' : 'Dark'} Theme
+					</button>
+				</div>
+
 				<div className="flex flex-wrap items-center justify-center max-w-sm md:max-w-4xl md:w-full">
 					{ITEMS.map(({ title, description, href }, i) => (
 						<a
-							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-300 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
+							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-100 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
 							href={href}
 							key={i}>
 							<h2 className="text-2xl font-bold">{title}</h2>
@@ -63,7 +114,7 @@ export default function Home() {
 				</div>
 			</main>
 
-			<footer className="flex items-center justify-center py-8 border-t-2 border-gray-300 dark:border-gray-800">
+			<footer className="flex items-center justify-center py-8 border-t-2 border-gray-100 dark:border-gray-800">
 				<a
 					className="flex flex-grow items-center justify-center"
 					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
