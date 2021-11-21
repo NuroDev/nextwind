@@ -51,7 +51,7 @@ export default function Home() {
 				<h1 className="m-0 leading-5 text-3xl sm:text-5xl lg:text-7xl font-bold text-center">
 					Welcome to{' '}
 					<a
-						className="text-blue-500 no-underline rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
+						className="text-blue-500 no-underline rounded-md default-transition default-focus"
 						href="https://nextjs.org">
 						Next.js!
 					</a>
@@ -67,7 +67,7 @@ export default function Home() {
 				<div className="w-full flex items-center justify-center p-4">
 					<button
 						aria-label="Toggle Theme"
-						className="w-full sm:w-auto px-8 py-2 bg-gray-600 text-white dark:(bg-white text-gray-700) hover:(bg-gray-800 dark:bg-gray-200) rounded-md font-bold leading-6 transition ease-in-out duration-500 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
+						className="w-full sm:w-auto px-8 py-2 bg-gray-600 text-white dark:(bg-white text-gray-700) hover:(bg-gray-800 dark:bg-gray-200) rounded-md font-bold leading-6 transition ease-in-out duration-500 default-focus"
 						onClick={() => setTheme(isDark ? 'light' : 'dark')}
 						type="submit">
 						<svg
@@ -77,9 +77,9 @@ export default function Home() {
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
 							className="inline-flex mr-3">
 							{isDark ? (
 								<>
@@ -104,7 +104,7 @@ export default function Home() {
 				<div className="flex flex-wrap items-center justify-center max-w-sm md:max-w-4xl md:w-full">
 					{ITEMS.map(({ title, description, href }, i) => (
 						<a
-							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-100 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
+							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-100 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md default-transition default-focus"
 							href={href}
 							key={i}>
 							<h2 className="text-2xl font-bold">{title}</h2>

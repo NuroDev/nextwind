@@ -7,6 +7,10 @@ export default defineConfig({
 		include: ['**/*.{jsx,tsx,css}'],
 		exclude: ['node_modules', '.git', '.next'],
 	},
+	shortcuts: {
+		'default-focus': 'focus:(outline-none ring-4 ring-offset-4 ring-blue-500)',
+		'default-transition': 'transition ease-in-out duration-300',
+	},
 	theme: {
 		extend: {
 			colors: {
