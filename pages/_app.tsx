@@ -11,7 +11,8 @@ export default function App({ Component, pageProps }: AppProps) {
 		<ThemeProvider
 			attribute="class"
 			defaultTheme={ThemeType.SYSTEM}
-			themes={Object.values(ThemeType)}>
+			themes={Object.values(ThemeType)}
+		>
 			<div className="antialiased m-0 p-0 bg-gray-50 dark:bg-gray-900">
 				<Component {...pageProps} />
 			</div>

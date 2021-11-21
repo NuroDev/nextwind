@@ -52,7 +52,8 @@ export default function Home() {
 					Welcome to{' '}
 					<a
 						className="text-blue-500 no-underline rounded-md default-transition default-focus"
-						href="https://nextjs.org">
+						href="https://nextjs.org"
+					>
 						Next.js!
 					</a>
 				</h1>
@@ -69,7 +70,8 @@ export default function Home() {
 						aria-label="Toggle Theme"
 						className="w-full sm:w-auto px-8 py-3 border-2 border-gray-200 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md font-bold leading-6 transition ease-in-out duration-500 default-focus"
 						onClick={() => setTheme(isDark ? 'light' : 'dark')}
-						type="submit">
+						type="submit"
+					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
@@ -80,7 +82,8 @@ export default function Home() {
 							strokeWidth="2"
 							strokeLinecap="round"
 							strokeLinejoin="round"
-							className="inline-flex mr-3">
+							className="inline-flex mr-3"
+						>
 							{isDark ? (
 								<>
 									<circle cx="12" cy="12" r="5"></circle>
@@ -106,7 +109,8 @@ export default function Home() {
 						<a
 							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-200 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md default-transition default-focus"
 							href={href}
-							key={i}>
+							key={i}
+						>
 							<h2 className="text-2xl font-bold">{title}</h2>
 							<p className="text-gray-400 text-xl leading-6">{description}</p>
 						</a>
@@ -119,7 +123,8 @@ export default function Home() {
 					className="flex flex-grow items-center justify-center"
 					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
 					rel="noopener noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					Powered by{' '}
 					<span className="h-4 ml-0.5">
 						<Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
