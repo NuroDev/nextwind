@@ -1,0 +1,45 @@
+{
+	"private": true,
+	"name": "nextwind",
+	"description": "Next.js + EmotionCSS + WindiCSS project template",
+	"version": "0.1.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nurodev/nextwind.git"
+	},
+	"homepage": "https://github.com/nurodev/nextwind",
+	"bugs": "https://github.com/nurodev/nextwind/issues",
+	"author": {
+		"name": "nurodev",
+		"email": "me@nuro.dev",
+		"url": "https://nuro.dev"
+	},
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write \"**/*.{css,js,json,jsx,ts,tsx}\""
+	},
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSpacing": true,
+		"jsxBracketSameLine": true,
+		"printWidth": 100,
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "all",
+		"useTabs": true
+	},
+	"dependencies": {
+		"next": "12.0.4",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"eslint": "7",
+		"eslint-config-next": "12.0.4",
+		"prettier": "^2.4.1"
+	}
+}
