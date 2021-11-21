@@ -67,7 +67,7 @@ export default function Home() {
 				<div className="w-full flex items-center justify-center p-4">
 					<button
 						aria-label="Toggle Theme"
-						className="w-full sm:w-auto px-8 py-2 bg-gray-600 text-white dark:(bg-white text-gray-700) hover:(bg-gray-800 dark:bg-gray-200) rounded-md font-bold leading-6 transition ease-in-out duration-500 default-focus"
+						className="w-full sm:w-auto px-8 py-3 border-2 border-gray-200 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md font-bold leading-6 transition ease-in-out duration-500 default-focus"
 						onClick={() => setTheme(isDark ? 'light' : 'dark')}
 						type="submit">
 						<svg
@@ -104,7 +104,7 @@ export default function Home() {
 				<div className="flex flex-wrap items-center justify-center max-w-sm md:max-w-4xl md:w-full">
 					{ITEMS.map(({ title, description, href }, i) => (
 						<a
-							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-100 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md default-transition default-focus"
+							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-200 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md default-transition default-focus"
 							href={href}
 							key={i}>
 							<h2 className="text-2xl font-bold">{title}</h2>
@@ -114,7 +114,7 @@ export default function Home() {
 				</div>
 			</main>
 
-			<footer className="flex items-center justify-center py-8 border-t-2 border-gray-100 dark:border-gray-800">
+			<footer className="flex items-center justify-center py-8 border-t-2 border-gray-200 dark:border-gray-800">
 				<a
 					className="flex flex-grow items-center justify-center"
 					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
