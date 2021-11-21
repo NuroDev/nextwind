@@ -45,22 +45,25 @@ export default function Home() {
 
 				<p className="my-8 leading-5 text-2xl text-center">
 					Get started by editing{' '}
-					<code className="px-2 py-1 bg-gray-100 rounded text-lg">pages/index.tsx</code>
+					<code className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-lg">
+						pages/index.tsx
+					</code>
 				</p>
 
 				<div className="flex flex-wrap items-center justify-center max-w-sm md:max-w-4xl md:w-full">
-					{ITEMS.map(({ title, description, href }) => (
+					{ITEMS.map(({ title, description, href }, i) => (
 						<a
+							className="max-w-sm space-y-2 m-4 p-6 text-left no-underline border-2 border-gray-300 dark:border-gray-800 hover:(text-blue-500 !border-blue-500) rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)"
 							href={href}
-							className="max-w-sm m-4 p-6 text-left no-underline border border-gray-300 hover:(text-blue-500 border-blue-500) rounded-md transition ease-in-out duration-300 focus:(outline-none ring-4 ring-offset-4 ring-blue-500)">
+							key={i}>
 							<h2 className="text-2xl font-bold">{title}</h2>
-							<p className="m-0 text-xl leading-6">{description}</p>
+							<p className="text-gray-400 text-xl leading-6">{description}</p>
 						</a>
 					))}
 				</div>
 			</main>
 
-			<footer className="flex items-center justify-center py-8 border-t border-gray-300">
+			<footer className="flex items-center justify-center py-8 border-t-2 border-gray-300 dark:border-gray-800">
 				<a
 					className="flex flex-grow items-center justify-center"
 					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
