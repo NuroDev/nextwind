@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "nextwind",
-	"description": "Next.js + WindiCSS project template",
+	"description": "Bootstrap Next.js with WindiCSS & more",
 	"version": "0.1.1",
 	"repository": {
 		"type": "git",
