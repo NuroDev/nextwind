@@ -1,23 +1,50 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import { useMemo } from 'react';
 import { useTheme } from 'next-themes';
 
+import { Layout } from '~/layouts';
 import { ThemeType } from '~/types';
 
 export default function Home() {
 	const { theme, setTheme } = useTheme();
 
 	const isDark = useMemo(() => {
-		if (theme === ThemeType.SYSTEM) {
+		if (theme === ThemeType.SYSTEM)
 			return window.matchMedia('(prefers-color-scheme: dark)').matches;
-		}
 
 		return theme === ThemeType.DARK;
 	}, [theme]);
 
 	const ITEMS = [
+		{
+			title: (
+				<div className="flex items-center justify-start space-x-2">
+					<Icon icon="feather:github" />
+					<span>GitHub</span>
+				</div>
+			),
+			description: 'Learn more about the project template on GitHub',
+			href: 'https://nextjs.org/learn',
+		},
+		{
+			title: (
+				<div className="flex items-center justify-start space-x-2">
+					<svg
+						width="1155"
+						height="1000"
+						viewBox="0 0 1155 1000"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						className="w-6 h-6"
+					>
+						<path d="M577.344 0L1154.69 1000H0L577.344 0Z" fill="currentColor" />
+					</svg>
+					<span>Deploy</span>
+				</div>
+			),
+			description: 'Instantly deploy your Next.js site to a public URL with Vercel.',
+			href: 'https://vercel.com/new?utm_source=nuro&utm_medium=nextwind-template&utm_campaign=nextwind',
+		},
 		{
 			title: (
 				<div className="flex items-center justify-start space-x-2">
@@ -36,46 +63,10 @@ export default function Home() {
 			onClick: () => setTheme(isDark ? 'light' : 'dark'),
 			label: 'Toggle Theme',
 		},
-		{
-			title: (
-				<div className="flex items-center justify-start space-x-2">
-					<Icon icon="feather:github" />
-					<span>GitHub</span>
-				</div>
-			),
-			description: 'Learn more about the project template on GitHub',
-			href: 'https://nextjs.org/learn',
-		},
-		{
-			title: (
-				<div className="flex items-center justify-start space-x-2">
-					{/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
-					<svg
-						width="1155"
-						height="1000"
-						viewBox="0 0 1155 1000"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						className="w-6 h-6"
-					>
-						<path d="M577.344 0L1154.69 1000H0L577.344 0Z" fill="currentColor" />
-					</svg>
-					<span>Deploy</span>
-				</div>
-			),
-			description: 'Instantly deploy your Next.js site to a public URL with Vercel.',
-			href: 'https://vercel.com/new?utm_source=nuro&utm_medium=nextwind-template&utm_campaign=nextwind',
-		},
 	];
 
 	return (
-		<>
-			<Head>
-				<title>Nextwind</title>
-				<meta name="description" content="Bootstrap Next.js with WindiCSS & more" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-
+		<Layout.Basic>
 			<main className="min-h-screen flex flex-1 flex-col items-center justify-center py-16">
 				<h1 className="m-0 leading-5 text-3xl sm:text-5xl lg:text-7xl font-bold text-center">
 					Welcome to{' '}
@@ -135,11 +126,9 @@ export default function Home() {
 								fill="currentColor"
 							/>
 						</svg>
-
-						{/* <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} /> */}
 					</span>
 				</a>
 			</footer>
-		</>
+		</Layout.Basic>
 	);
 }
