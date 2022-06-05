@@ -13,9 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			defaultTheme={ThemeType.SYSTEM}
 			themes={Object.values(ThemeType)}
 		>
-			<div className="antialiased m-0 p-0 bg-gray-50 dark:bg-gray-900">
-				<Component {...pageProps} />
-			</div>
+			<Component {...pageProps} />
 		</ThemeProvider>
 	);
 }
