@@ -1,19 +1,21 @@
 import { Icon } from '@iconify/react';
-import { useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
+import { Footer } from '~/components';
 import { Layout } from '~/layouts';
 import { ThemeType } from '~/types';
+import { useMedia } from 'react-use';
 
 export default function Home() {
+	const [isDark, setIsDark] = useState(false);
 	const { theme, setTheme } = useTheme();
+	const isSystemDarkScheme = useMedia('(prefers-color-scheme: dark)');
 
-	const isDark = useMemo(() => {
-		if (theme === ThemeType.SYSTEM)
-			return window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-		return theme === ThemeType.DARK;
-	}, [theme]);
+	useEffect(
+		() => setIsDark(theme === ThemeType.SYSTEM ? isSystemDarkScheme : theme === ThemeType.DARK),
+		[isSystemDarkScheme, theme],
+	);
 
 	const ITEMS = [
 		{
