@@ -15,7 +15,7 @@ export default defineConfig({
 	theme: {
 		extend: {
 			colors: {
-				gray: colors.trueGray,
+				gray: colors.neutral,
 				primary: colors.blue,
 			},
 		},
